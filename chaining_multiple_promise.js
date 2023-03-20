@@ -1,11 +1,13 @@
-const randomNumber = new Promise((resolve, reject) => {
-  const number = Math.random();
-  if (number > 0.5) {
-    resolve("hore");
-  } else {
-    reject("tidakk");
-  }
-});
+const randomNumber = () => {
+  return new Promise((resolve, reject) => {
+    const number = Math.random();
+    if (number > 0.5) {
+      resolve("hore");
+    } else {
+      reject("tidakk");
+    }
+  });
+};
 
 const handleSucces = (resolvedValue) => {
   console.log(resolvedValue);
@@ -15,4 +17,6 @@ const handleFailure = (rejectedValue) => {
   console.log(rejectedValue);
 };
 
-randomNumber.then(handleSucces, handleFailure);
+const handleDone = () => console.log("operasi selesai");
+
+randomNumber().then(handleSucces).catch(handleFailure).then(handleDone);
