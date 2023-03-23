@@ -4,6 +4,7 @@ class ImageFigure extends HTMLElement {
   //   console.log("constructed!");
   // }
 
+  
   connectedCallback() {
     this.src = this.getAttribute("src") || null
     this.alt = this.getAttribute("alt") || null
@@ -12,15 +13,22 @@ class ImageFigure extends HTMLElement {
     this.render()
   }
 
+
+
   render() {
     this.innerHTML = `
-        <figure class='${this.class}'>
+    <figure class='${this.class}'>
           <img src='${this.src}' alt='${this.alt}'>
           <figcaption>${this.caption}</figcaption>
         </figure>
+        <br>
+        <br>
+        <br>
+        
+        
     `
   }
-
+  
   attributeChangedCallback(name, oldValue, newValue) {
     this[name] = newValue;
     this.render()
@@ -34,3 +42,9 @@ class ImageFigure extends HTMLElement {
 // custom elements merupakan object global yang digunakan untuk
 // => mendefinisikan custom element dan memberi tahu bahwa ada html tag baru
 customElements.define("image-figure", ImageFigure);
+
+
+
+
+
+
