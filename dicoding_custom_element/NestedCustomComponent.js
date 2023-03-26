@@ -31,11 +31,10 @@ const articles = [
 
 const article = {
   id: 1,
-  title: "Lorem Ipsum Dolor",
+  title: "single article title",
   featuredImage: "https://picsum.photos/id/204/536/354?grayscale",
-  description:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-};
+  description: 'halo ini single article'
+}
 
 class ArticleItem extends HTMLElement {
   set article(article) {
@@ -58,12 +57,17 @@ class ArticleItem extends HTMLElement {
 customElements.define("article-item", ArticleItem);
 
 // // initialization of custom component
-// const articleItemElement = document.createElement("article-item");
+const articleItemElement = document.createElement("article-item");
 // // menambahkan data (object) ke articleElement
-// articleItemElement.article = article;
+articleItemElement.article = article;
 
 // // injecting custom component to body
 // document.body.appendChild(articleItemElement);
+
+const singleArticle = document.querySelector('.container')
+singleArticle.appendChild(articleItemElement);
+
+
 
 class ArticleList extends HTMLElement {
     set articles(articles){
