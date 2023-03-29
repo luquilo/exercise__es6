@@ -1,43 +1,40 @@
-import './club-item.js'
-
+import './club-item.js';
+ 
 class ClubList extends HTMLElement {
-
-  constructor(){
+  constructor() {
     super();
-    this.shadowDOM = this.attachShadow({mode:'open'})
+    this.shadowDOM = this.attachShadow({mode: 'open'});
   }
-
+ 
   set clubs(clubs) {
     this._clubs = clubs;
     this.render();
   }
-
+ 
   renderError(message) {
-    this.shadowDOM.innerHTML = 
-    `
+    this.shadowDOM.innerHTML = `
       <style>
-      .placeholder {
-        font-weight: lighter;
-        color: rgba(0, 0, 0, 0.5);
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
+        .placeholder {
+          font-weight: lighter;
+          color: rgba(0,0,0,0.5);
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
       </style>
-    `
-    this.shadowDOM.innerHTML += `<h2 class='placeholder'>${message}</h2>`;
+    `;
+    this.shadowDOM.innerHTML += `<h2 class="placeholder">${message}</h2>`;
   }
-
+ 
   render() {
-    this.shadowDOM.innerHTML = "";
-    this._clubs.forEach((club) => {
-      const clubItemElement = document.createElement("club-item");
+    this.shadowDOM.innerHTML = '' ;
+    this._clubs.forEach(club => {
+      const clubItemElement = document.createElement('club-item');
       clubItemElement.club = club;
-      this.appendChild(clubItemElement);
+      this.shadowDOM.appendChild(clubItemElement);
     });
   }
-
 }
-
+ 
 customElements.define('club-list', ClubList);
