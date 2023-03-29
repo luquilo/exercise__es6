@@ -4,15 +4,6 @@ club-list {
   padding: 16px;
 }
 
-club-list > .placeholder {
-  font-weight: lighter;
-  color: rgba(0, 0, 0, 0.5);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 club-item {
   margin-bottom: 18px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
